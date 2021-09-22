@@ -2,7 +2,7 @@ import React from "react"
 import emoji from "./emoji.svg"
 import "./Instructions.css"
 
-export default function Instructions() {
+const Instructions = () => {
   return (
     <div className="instructions">
       <img src={emoji} alt="laughing crying emoji" />
@@ -10,3 +10,5 @@ export default function Instructions() {
     </div>
   )
 }
+
+export default Instructions
