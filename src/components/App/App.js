@@ -1,41 +1,31 @@
 import "./App.css"
-import Instructions from "../Instructions/Instructions.js"
+import Animals from "./data"
+import AnimalCard from "../AnimalCard/AnimalCard"
 
-const displayEmojiName = (event) => alert(event.target.id)
-const displayAction = false
-const emojis = [
-  {
-    name: "grinning face",
-    value: "😀",
-  },
-  {
-    name: "party popper",
-    value: "🎉",
-  },
-  {
-    name: "woman dancing",
-    value: "💃",
-  },
-]
+function showAdditional(additional) {
+  if (additional) {
+    const alertInformation = Object.entries(additional)
+      .map((information) => `${information[0]}: ${information[1]}`)
+      .join("\n")
+    alert(alertInformation)
+  }
+}
 
 function App() {
-  const greeting = "greeting"
   return (
-    <div className="container">
-      <h1 id={greeting}>Hello World!</h1>
-      {displayAction && <p>Doing JSX Action</p>}
-      <Instructions />
-      <ul>
-        {emojis.map((emoji) => (
-          <li>
-            <button onClick={displayEmojiName}>
-              <span role="img" aria-label={emoji.name} id={emoji.name}>
-                {emoji.value}
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className="wrapper">
+      <h1> Animals </h1>
+      {Animals.map((animal) => (
+        <AnimalCard
+          additional={animal.additional}
+          diet={animal.diet}
+          key={animal.name}
+          name={animal.name}
+          scientificName={animal.scientificName}
+          size={animal.size}
+          showAdditional={showAdditional}
+        />
+      ))}
     </div>
   )
 }
