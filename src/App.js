@@ -1,11 +1,12 @@
 import "./App.css"
 
 function App() {
+  const greeting = "greeting"
   return (
-    <>
-      <h1>Hello World!</h1>
+    <div className="container">
+      <h1 id={greeting}>Hello World!</h1>
       <p>This is JSX</p>
-    </>
+    </div>
   )
 }
 
