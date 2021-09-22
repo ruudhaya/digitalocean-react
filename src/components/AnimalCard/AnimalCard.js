@@ -1,3 +1,4 @@
+import React from "react"
 import "./AnimalCard.css"
 
 export default function AnimalCard({
@@ -6,13 +7,17 @@ export default function AnimalCard({
   name,
   scientificName,
   size,
+  showAdditional,
 }) {
   return (
-    <div className="animalcontainer">
+    <div className="animal-wrapper">
       <h2>{name}</h2>
       <h3>{scientificName}</h3>
       <h4>{size}kg</h4>
       <div>{diet.join(", ")}.</div>
+      {additional && (
+        <button onClick={() => showAdditional(additional)}>More Info</button>
+      )}
     </div>
   )
 }
