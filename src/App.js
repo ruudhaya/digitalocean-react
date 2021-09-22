@@ -1,7 +1,7 @@
 import "./App.css"
 
 const displayEmojiName = (event) => alert(event.target.id)
-
+const displayAction = false
 const emojis = [
   {
     name: "grinning face",
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="container">
       <h1 id={greeting}>Hello World!</h1>
-      <p>This is JSX</p>
+      {displayAction && <p>Doing JSX Action</p>}
       <ul>
         {emojis.map((emoji) => (
           <li>
