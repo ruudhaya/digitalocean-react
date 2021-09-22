@@ -1,5 +1,5 @@
 import "./App.css"
-import Instructions from "./Instructions.js"
+import Instructions from "../Instructions/Instructions.js"
 
 const displayEmojiName = (event) => alert(event.target.id)
 const displayAction = false
