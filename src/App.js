@@ -1,23 +1,39 @@
-import logo from "./logo.svg"
 import "./App.css"
 
+const displayEmojiName = (event) => alert(event.target.id)
+const displayAction = false
+const emojis = [
+  {
+    name: "grinning face",
+    value: "😀",
+  },
+  {
+    name: "party popper",
+    value: "🎉",
+  },
+  {
+    name: "woman dancing",
+    value: "💃",
+  },
+]
+
 function App() {
+  const greeting = "greeting"
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Now
-        </a>
-      </header>
+    <div className="container">
+      <h1 id={greeting}>Hello World!</h1>
+      {displayAction && <p>Doing JSX Action</p>}
+      <ul>
+        {emojis.map((emoji) => (
+          <li>
+            <button onClick={displayEmojiName}>
+              <span role="img" aria-label={emoji.name} id={emoji.name}>
+                {emoji.value}
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
