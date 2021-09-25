@@ -1,42 +1,21 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./AnimalCard.css"
+import { AnimalDetails } from "../AnimalDetails/AnimalDetails"
+import Card from "../Card/Card"
 
-export default function AnimalCard({
-  additional,
-  diet,
-  name,
-  scientificName,
-  size,
-  showAdditional,
-}) {
+export default function AnimalCard({ name, size, ...props }) {
   return (
-    <div className="animal-wrapper">
-      <h2>{name}</h2>
-      <h3>{scientificName}</h3>
-      <h4>{size}kg</h4>
-      <div>{diet.join(", ")}.</div>
-      {additional && (
-        <button onClick={() => showAdditional(additional)}>More Info</button>
-      )}
-    </div>
+    <Card title="Animal" details={<AnimalDetails {...props} />}>
+      <div>
+        <h3>{name}</h3>
+        <h4>{size}kg</h4>
+      </div>
+    </Card>
   )
 }
 
 AnimalCard.propTypes = {
-  additional: PropTypes.shape({
-    link: PropTypes.string,
-    notes: PropTypes.string,
-  }).isRequired,
-  diet: PropTypes.arrayOf(PropTypes.string).isRequired,
   name: PropTypes.string.isRequired,
-  scientificName: PropTypes.string.isRequired,
-  showAdditional: PropTypes.func.isRequired,
   size: PropTypes.number.isRequired,
-}
-
-AnimalCard.defaultProps = {
-  additional: {
-    notes: "No Additional Information",
-  },
 }
