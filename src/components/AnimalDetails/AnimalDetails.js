@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import "./AnimalDetails.css"
 
 function convertDiet(food) {
   switch (food) {
@@ -13,20 +14,24 @@ function convertDiet(food) {
   }
 }
 
-export const AnimalDetails = ({ diet }) => {
+export const AnimalDetails = ({ diet, scientificName }) => {
   return (
     <div className="detail">
-      <h1>AnimalDetails</h1>
-      Diet:
-      {diet
-        .map((aDiet) => {
-          return convertDiet(aDiet)
-        })
-        .join(" ")}
+      <h4>AnimalDetails</h4>
+      <div>Scientific Name: {scientificName}</div>
+      <div>
+        Diet:
+        {diet
+          .map((aDiet) => {
+            return convertDiet(aDiet)
+          })
+          .join(" ")}
+      </div>
     </div>
   )
 }
 
 AnimalDetails.propTypes = {
   diet: PropTypes.arrayOf(PropTypes.string).isRequired,
+  scientificName: PropTypes.string.isRequired,
 }

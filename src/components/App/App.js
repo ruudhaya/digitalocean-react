@@ -16,7 +16,13 @@ function App() {
     <div className="wrapper">
       <h1> Animals </h1>
       {animals.map((animal) => (
-        <AnimalCard diet={animal.diet} name={animal.name} size={animal.size} />
+        <AnimalCard
+          diet={animal.diet}
+          key={animal.name}
+          name={animal.name}
+          size={animal.size}
+          scientificName={animal.scientificName}
+        />
       ))}
     </div>
   )
